@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Reserva.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">dominio</a> &gt; <a href="index.source.html" class="el_package">com.ceiba.reserva.modelo.entidad</a> &gt; <span class="el_source">Reserva.java</span></div><h1>Reserva.java</h1><pre class="source lang-java linenums">package com.ceiba.reserva.modelo.entidad;
+
+import lombok.Getter;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+import static com.ceiba.dominio.ValidadorArgumento.validarMenor;
+import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
+
+@Getter
+public class Reserva {
+
+    private static final String SE_DEBE_INGRESAR_LA_FECHA_CREACION_DE_LA_RESERVA = &quot;Se debe ingresar la fecha en al cual se creo la reserva&quot;;
+    private static final String SE_DEBE_INGRESAR_LA_FECHA_DE_RESERVA = &quot;Se debe ingresar la fecha de la reserva&quot;;
+    private static final String SE_DEBE_INGRESAR_EL_CODIGO_DE_LA_RESERVA = &quot;Se debe ingresar el codigo de reserva&quot;;
+    private static final String SE_DEBE_INGRESAR_EL_NOMBRE_DE_LA_PELICULA = &quot;Se debe ingresar el nombre de la pelicula&quot;;
+    private static final String SE_DEBE_INGRESAR_EL_NUMERO_DE_PUESTO = &quot;Debe ingresar el puesto en el que desea estar ubicado&quot;;
+    private static final String EL_TIEMPO_DE_RESERVA_FINALIZO = &quot;El horario disponible para hacer la reserva ya termino&quot;;
+    private static final String EL_TIEMPO_PARA_RESERVAR_NO_HA_INICIADO = &quot;Todavia no esta disponible el horario para hacer una reserva&quot;;
+
+
+<span class="fc" id="L23">    private static final Integer CAPACIDAD_MAXIMA_DE_PUESTOS = 100;</span>
+<span class="fc" id="L24">    private static final Double TARIFA_ENTRADA_AUTOMOVILES = 40.000;</span>
+<span class="fc" id="L25">    private static final Double TARIFA_ENTRADA_CAMIONETA = 60.000;</span>
+<span class="fc" id="L26">    private static final Integer INICIO_HORARIO_DE_ATENCION = 8;</span>
+<span class="fc" id="L27">    private static final Integer FIN_HORARIO_DE_ATENCION = 17;</span>
+
+    //private static final String SE_DEBE_INGRESAR_LA_FECHA_CREACION = &quot;Se debe ingresar la fecha de creaciÃ³n&quot;;
+
+
+<span class="nc" id="L32">    private Long id_reserva;</span>
+<span class="nc" id="L33">    private String codigo;</span>
+<span class="nc" id="L34">    private String pelicula;</span>
+<span class="nc" id="L35">    private LocalDate fechaCreacion;</span>
+<span class="nc" id="L36">    private LocalTime horaCreacion;</span>
+<span class="nc" id="L37">    private LocalDate fechaReserva;</span>
+<span class="nc" id="L38">    private LocalTime horaReserva;</span>
+<span class="nc" id="L39">    private Integer no_puesto;</span>
+<span class="nc" id="L40">    private Long id_cliente;</span>
+
+<span class="fc" id="L42">    public Reserva(Long idReserva, String codigo, String pelicula, LocalDate fechaCreacion, LocalTime horaCreacion, LocalDate fechaReserva, LocalTime horaReserva, Integer noPuesto, Long idCliente) {</span>
+
+<span class="fc" id="L44">        validarObligatorio(fechaCreacion, SE_DEBE_INGRESAR_LA_FECHA_CREACION_DE_LA_RESERVA);</span>
+<span class="fc" id="L45">        validarObligatorio(fechaReserva, SE_DEBE_INGRESAR_LA_FECHA_DE_RESERVA);</span>
+<span class="fc" id="L46">        validarObligatorio(codigo, SE_DEBE_INGRESAR_EL_CODIGO_DE_LA_RESERVA);</span>
+<span class="fc" id="L47">        validarObligatorio(pelicula, SE_DEBE_INGRESAR_EL_NOMBRE_DE_LA_PELICULA);</span>
+<span class="fc" id="L48">        validarObligatorio(noPuesto, SE_DEBE_INGRESAR_EL_NUMERO_DE_PUESTO);</span>
+<span class="fc" id="L49">        validarMenor(INICIO_HORARIO_DE_ATENCION,horaCreacion.getHour(), EL_TIEMPO_PARA_RESERVAR_NO_HA_INICIADO);</span>
+<span class="fc" id="L50">        validarMenor(horaCreacion.getHour(),FIN_HORARIO_DE_ATENCION, EL_TIEMPO_DE_RESERVA_FINALIZO);</span>
+
+<span class="fc" id="L52">        this.id_reserva = idReserva;</span>
+<span class="fc" id="L53">        this.codigo = codigo;</span>
+<span class="fc" id="L54">        this.pelicula = pelicula;</span>
+<span class="fc" id="L55">        this.fechaCreacion = fechaCreacion;</span>
+<span class="fc" id="L56">        this.horaCreacion = horaCreacion;</span>
+<span class="fc" id="L57">        this.fechaReserva = fechaReserva;</span>
+<span class="fc" id="L58">        this.horaReserva = horaReserva;</span>
+<span class="fc" id="L59">        this.no_puesto = noPuesto;</span>
+<span class="fc" id="L60">        this.id_cliente = idCliente;</span>
+<span class="fc" id="L61">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

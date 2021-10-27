@@ -1,0 +1,21 @@
+com/ceiba/BasePrueba.java
+ com.ceiba.BasePrueba
+ com.ceiba.BasePrueba$Thunk
+com/ceiba/usuario/servicio/ServicioEliminarUsuarioTest.java
+ com.ceiba.usuario.servicio.ServicioEliminarUsuarioTest
+com/ceiba/reserva/servicio/ServicioEliminarReservaTest.java
+ com.ceiba.reserva.servicio.ServicioEliminarReservaTest
+com/ceiba/reserva/entidad/ReservaTest.java
+ com.ceiba.reserva.entidad.ReservaTest
+com/ceiba/usuario/servicio/ServicioCrearUsuarioTest.java
+ com.ceiba.usuario.servicio.ServicioCrearUsuarioTest
+com/ceiba/usuario/servicio/testdatabuilder/UsuarioTestDataBuilder.java
+ com.ceiba.usuario.servicio.testdatabuilder.UsuarioTestDataBuilder
+com/ceiba/usuario/servicio/ServicioActualizarUsuarioTest.java
+ com.ceiba.usuario.servicio.ServicioActualizarUsuarioTest
+com/ceiba/usuario/entidad/UsuarioTest.java
+ com.ceiba.usuario.entidad.UsuarioTest
+com/ceiba/reserva/servicio/testdatabuilder/ReservaTestDataBuilder.java
+ com.ceiba.reserva.servicio.testdatabuilder.ReservaTestDataBuilder
+com/ceiba/reserva/servicio/ServicioCrearReservaTest.java
+ com.ceiba.reserva.servicio.ServicioCrearReservaTest
