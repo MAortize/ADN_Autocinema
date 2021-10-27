@@ -10,25 +10,25 @@ public class ServicioCrearReserva {
     private static final String LA_RESERVA_YA_EXISTE_EN_EL_SISTEMA = &quot;La reserva ya existe en el sistema&quot;;
 
     private final RepositorioReserva repositorioReserva;
-    private final RepositorioUsuario repositorioUsuario;
 
-<span class="nc" id="L15">    public ServicioCrearReserva(RepositorioReserva repositorioReserva, RepositorioUsuario repositorioUsuario) {</span>
-<span class="nc" id="L16">        this.repositorioReserva = repositorioReserva;</span>
-<span class="nc" id="L17">        this.repositorioUsuario = repositorioUsuario;</span>
-<span class="nc" id="L18">    }</span>
 
-    public Long ejecutar(Reserva reserva, Usuario usuario){
-<span class="nc" id="L21">        validarExistenciaPrevia(reserva, usuario);</span>
-<span class="nc" id="L22">        return this.repositorioReserva.crear(reserva);</span>
+<span class="fc" id="L15">    public ServicioCrearReserva(RepositorioReserva repositorioReserva) {</span>
+<span class="fc" id="L16">        this.repositorioReserva = repositorioReserva;</span>
+
+<span class="fc" id="L18">    }</span>
+
+    public Long ejecutar(Reserva reserva){
+<span class="fc" id="L21">        validarExistenciaPrevia(reserva);</span>
+<span class="fc" id="L22">        return this.repositorioReserva.crear(reserva);</span>
     }
 
-    private void validarExistenciaPrevia(Reserva reserva, Usuario usuario) {
-<span class="nc" id="L26">        boolean existe = this.repositorioReserva.existe(reserva.getCodigo());</span>
-<span class="nc" id="L27">        boolean existeUsu = this.repositorioUsuario.existe(usuario.getNombre());</span>
-<span class="nc bnc" id="L28" title="All 4 branches missed.">        if(existe&amp;&amp;existeUsu) {</span>
+    private void validarExistenciaPrevia(Reserva reserva) {
+<span class="fc" id="L26">        boolean existe = this.repositorioReserva.existe(reserva.getCodigo());</span>
+
+<span class="pc bpc" id="L28" title="1 of 2 branches missed.">        if(existe) {</span>
 <span class="nc" id="L29">            throw new ExcepcionDuplicidad(LA_RESERVA_YA_EXISTE_EN_EL_SISTEMA);</span>
         }
-<span class="nc" id="L31">    }</span>
+<span class="fc" id="L31">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
